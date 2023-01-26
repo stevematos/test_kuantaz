@@ -15,4 +15,4 @@ class User(Base):
     position = Column(String(25), nullable=False)
     date_of_birth = Column(DateTime, nullable=False)
 
-    projects = relationship('project', backref='user')
+    projects = relationship('Project', backref='user')

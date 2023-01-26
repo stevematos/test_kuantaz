@@ -3,3 +3,4 @@ flasgger
 sqlalchemy
 python-dotenv
 psycopg2
+marshmallow

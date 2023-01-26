@@ -8,10 +8,9 @@ from config.environment import (
     DEBUG_MODE,
 )
 from sqlalchemy import create_engine
-# from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-
-
+from sqlalchemy.pool import NullPool
 
 if DATABASE_DIALECT == "sqlite":
     DATABASE_URL = f"sqlite:///./{DATABASE_NAME}.db"
@@ -24,11 +23,19 @@ else:
 
 
 # Create Database Engine
-Engine = create_engine(DATABASE_URL, echo=DEBUG_MODE, future=True)
+Engine = create_engine(DATABASE_URL, echo=DEBUG_MODE, future=True, poolclass=NullPool)
 
-# SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=Engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=Engine)
 
 Base = declarative_base()
+
+
+def db_session(f):
+    def with_session_(*args, **kwargs):
+        with SessionLocal() as session:
+            return f(session, *args, **kwargs)
+
+    return with_session_
 
 
 def init_db():

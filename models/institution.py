@@ -1,7 +1,7 @@
 from config.database import Base
 
 from sqlalchemy import Column, Integer, String, DateTime
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from sqlalchemy.sql import func
 
 
@@ -19,4 +19,4 @@ class Institution(Base):
         server_default=func.now(),
     )
 
-    projects = relationship('project', backref='institution')
+    projects = relationship('Project', backref=backref('institution'))
