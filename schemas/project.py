@@ -4,8 +4,6 @@ from models import Project
 
 class ProjectBaseSchema(Schema):
     name = fields.String()
-    start_date = fields.Date()
-    end_date = fields.Date()
 
     @post_load
     def make_institution(self, data, **kwargs):
@@ -13,5 +11,10 @@ class ProjectBaseSchema(Schema):
 
 
 class ProjectGetSchema(ProjectBaseSchema):
-    pass
+    start_date = fields.Date()
+    end_date = fields.Date()
+
+
+class ProjectEndDateSchema(ProjectBaseSchema):
+    end_date = fields.Date()
 

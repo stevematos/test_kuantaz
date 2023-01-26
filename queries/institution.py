@@ -29,7 +29,6 @@ def get_institution_by_id(db, _id: int, is_dump: bool = False):
 
 @db_session
 def update_institution(db, _id: int, institution: Institution):
-    print(institution)
     institution.id = _id
     db.merge(institution)
     db.commit()
