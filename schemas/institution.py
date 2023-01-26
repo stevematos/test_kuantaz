@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, post_load
 from models import Institution
-from schemas.project import ProjectSchema
+from schemas.project import ProjectGetSchema
 
 
 class InstitutionBaseSchema(Schema):
@@ -24,7 +24,7 @@ class InstitutionGetSchema(InstitutionBaseSchema):
 
 
 class InstitutionFullGetSchema(InstitutionBaseSchema):
-    projects = fields.Nested(ProjectSchema, many=True)
+    projects = fields.Nested(ProjectGetSchema, many=True)
 
 
 class InstitutionUpdateSchema(InstitutionBaseSchema):

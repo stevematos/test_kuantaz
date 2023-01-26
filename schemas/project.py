@@ -12,6 +12,6 @@ class ProjectBaseSchema(Schema):
         return Project(**data)
 
 
-class ProjectSchema(ProjectBaseSchema):
+class ProjectGetSchema(ProjectBaseSchema):
     pass
 

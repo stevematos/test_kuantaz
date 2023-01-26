@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, post_load
 from models import User
-from schemas.project import ProjectSchema
+from schemas.project import ProjectGetSchema
 
 
 class UserBaseSchema(Schema):
@@ -21,4 +21,4 @@ class UserGetSchema(UserBaseSchema):
 
 
 class UserFullGetSchema(UserBaseSchema):
-    projects = fields.Nested(ProjectSchema, many=True)
+    projects = fields.Nested(ProjectGetSchema, many=True)

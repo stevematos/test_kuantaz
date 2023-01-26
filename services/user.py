@@ -5,9 +5,8 @@ from sqlalchemy.exc import NoResultFound
 from schemas.user import UserGetSchema
 
 
-def read_all_user():
+def read_all_users():
     schema = UserGetSchema(many=True)
-
     return schema.dump(get_all_users())
 
 

@@ -22,7 +22,6 @@ def create_institution(data: dict) -> dict:
 
 def read_all_institutions():
     schema = InstitutionGetSchema(many=True)
-
     return schema.dump(get_all_institutions())
 
 
