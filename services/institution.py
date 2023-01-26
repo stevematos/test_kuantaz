@@ -7,6 +7,8 @@ from schemas.institution import InstitutionValidationSchema, InstitutionUpdateSc
 from marshmallow import ValidationError
 from sqlalchemy.exc import NoResultFound
 
+from utils.institution import adding_extra_data
+
 
 def create_institution(data: dict) -> dict:
     schema = InstitutionValidationSchema()
@@ -20,12 +22,12 @@ def create_institution(data: dict) -> dict:
     return {'message': 'Institution created successfully'}
 
 
-def read_all_institutions():
+def read_all_institutions() -> list[dict]:
     schema = InstitutionGetSchema(many=True)
     return schema.dump(get_all_institutions())
 
 
-def read_institution(_id: int):
+def read_institution(_id: int) -> dict:
     try:
         institution = get_institution_by_id(_id, is_dump=True)
     except NoResultFound:
@@ -34,7 +36,7 @@ def read_institution(_id: int):
     return institution
 
 
-def updated_institution(_id: int, data: dict):
+def updated_institution(_id: int, data: dict) -> dict:
     schema = InstitutionUpdateSchema()
 
     try:
@@ -52,7 +54,7 @@ def updated_institution(_id: int, data: dict):
     return {'message': 'Institution updated successfully'}
 
 
-def deleted_institution(_id: int):
+def deleted_institution(_id: int) -> dict:
     try:
         get_institution_by_id(_id)
     except NoResultFound:
@@ -61,3 +63,14 @@ def deleted_institution(_id: int):
     delete_product(_id)
 
     return {'message': 'Institution deleted successfully'}
+
+
+def read_institutions_with_address_google_maps() -> list[dict]:
+    schema = InstitutionGetSchema(many=True)
+
+    institutions = get_all_institutions()
+    data_institutions = schema.dump(institutions)
+
+    data_institutions = adding_extra_data(data_institutions)
+
+    return data_institutions
