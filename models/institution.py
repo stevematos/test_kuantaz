@@ -19,4 +19,4 @@ class Institution(Base):
         server_default=func.now(),
     )
 
-    projects = relationship('Project', backref=backref('institution'))
+    projects = relationship('Project', backref="institution")

@@ -1,6 +1,7 @@
 from config.database import Base
 
 from sqlalchemy import Column, Integer, String, Date, ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class Project(Base):

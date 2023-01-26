@@ -13,3 +13,8 @@ class InstitutionErrorValidation(Exception):
 class InstitutionNotFound(Exception):
     def __str__(self):
         return f"Institution not found"
+
+
+class UserNotFound(Exception):
+    def __str__(self):
+        return f"User not found"

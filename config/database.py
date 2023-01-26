@@ -46,6 +46,7 @@ def init_db():
 @db_session
 def dummy_data(db):
     from models import Institution, Project, User
+
     institution_1 = Institution(
         name='Institution 1',
         description='Description 1',
@@ -56,7 +57,7 @@ def dummy_data(db):
         name='User 1',
         surname='Surname 1',
         age=22,
-        RUT='30.686.957-1',
+        rut='30.686.957-1',
         position='Position 1',
         date_of_birth='1994-02-24',
     )
@@ -81,5 +82,4 @@ def dummy_data(db):
     db.add(user_1)
     db.add(project_1)
     db.add(project_2)
-
     db.commit()

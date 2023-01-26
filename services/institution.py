@@ -1,13 +1,15 @@
 from config.exceptions import InstitutionNotFound, InstitutionErrorValidation
-from queries.institution import add_institution, get_institution_by_id, update_institution, delete_product
-from schemas.institution import InstitutionSchema, InstitutionUpdateSchema
+from queries.institution import add_institution, get_institution_by_id, update_institution, delete_product, \
+    get_all_institutions
+from schemas.institution import InstitutionValidationSchema, InstitutionUpdateSchema, InstitutionFullGetSchema, \
+    InstitutionGetSchema
 
 from marshmallow import ValidationError
 from sqlalchemy.exc import NoResultFound
 
 
 def create_institution(data: dict) -> dict:
-    schema = InstitutionSchema()
+    schema = InstitutionValidationSchema()
     try:
         institution = schema.load(data)
     except ValidationError as e:
@@ -18,15 +20,19 @@ def create_institution(data: dict) -> dict:
     return {'message': 'Institution created successfully'}
 
 
-def get_institution(_id: int):
-    schema = InstitutionSchema()
+def read_all_institutions():
+    schema = InstitutionGetSchema(many=True)
 
+    return schema.dump(get_all_institutions())
+
+
+def read_institution(_id: int):
     try:
-        institution = get_institution_by_id(_id)
+        institution = get_institution_by_id(_id, is_dump=True)
     except NoResultFound:
         raise InstitutionNotFound()
 
-    return schema.dump(institution)
+    return institution
 
 
 def updated_institution(_id: int, data: dict):

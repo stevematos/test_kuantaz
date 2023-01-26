@@ -1,5 +1,6 @@
 from config.database import db_session
 from models import Institution
+from schemas.institution import InstitutionFullGetSchema
 
 
 @db_session
@@ -11,8 +12,19 @@ def add_institution(db, institution: Institution) -> Institution:
 
 
 @db_session
-def get_institution_by_id(db, _id: int) -> Institution:
-    return db.query(Institution).filter(Institution.id == _id).one()
+def get_all_institutions(db):
+    return db.query(Institution).all()
+
+
+@db_session
+def get_institution_by_id(db, _id: int, is_dump: bool = False):
+    institution = db.query(Institution).filter(Institution.id == _id).one()
+
+    if is_dump:
+        schema = InstitutionFullGetSchema()
+        institution = schema.dump(institution)
+
+    return institution
 
 
 @db_session
