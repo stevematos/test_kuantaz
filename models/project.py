@@ -1,6 +1,6 @@
 from config.database import Base
 
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Date, ForeignKey
 
 
 class Project(Base):
@@ -8,7 +8,7 @@ class Project(Base):
 
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String(255), nullable=False)
-    start_date = Column(DateTime, nullable=False)
-    end_date = Column(DateTime, nullable=False)
+    start_date = Column(Date, nullable=False)
+    end_date = Column(Date, nullable=False)
     user_id = Column(Integer, ForeignKey("user.id"))
     institution_id = Column(Integer, ForeignKey("institution.id"))

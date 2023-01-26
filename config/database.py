@@ -41,3 +41,45 @@ def db_session(f):
 def init_db():
     from models import Institution, Project, User
     Base.metadata.create_all(bind=Engine)
+
+
+@db_session
+def dummy_data(db):
+    from models import Institution, Project, User
+    institution_1 = Institution(
+        name='Institution 1',
+        description='Description 1',
+        address='Address 1'
+    )
+
+    user_1 = User(
+        name='User 1',
+        surname='Surname 1',
+        age=22,
+        RUT='30.686.957-1',
+        position='Position 1',
+        date_of_birth='1994-02-24',
+    )
+
+    project_1 = Project(
+        name='Project 1',
+        start_date='2023-01-13',
+        end_date='2023-01-21',
+        user_id=1,
+        institution_id=1
+    )
+
+    project_2 = Project(
+        name='Project 2',
+        start_date='2023-01-03',
+        end_date='2023-01-21',
+        user_id=1,
+        institution_id=1
+    )
+
+    db.add(institution_1)
+    db.add(user_1)
+    db.add(project_1)
+    db.add(project_2)
+
+    db.commit()

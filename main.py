@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flasgger import Swagger
 
-from config.database import init_db
+from config.database import init_db, dummy_data
 from config.environment import DATABASE_DIALECT, DEBUG_MODE
 from routers import institution_bp
 
@@ -14,9 +14,10 @@ with app.app_context():
 app.register_blueprint(institution_bp)
 
 
-@app.route('/test')
+@app.route('/dummy')
 def test():
-    return jsonify({'dialect': DATABASE_DIALECT})
+    dummy_data()
+    return {'message': 'Dummy data created successfully'}
 
 
 app.run(debug=DEBUG_MODE)
