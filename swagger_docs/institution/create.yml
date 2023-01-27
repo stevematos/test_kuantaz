@@ -1,0 +1,19 @@
+Add a new institution
+Add a new institution
+---
+tags:
+- Institution
+parameters:
+- name: Institution
+  in: body
+  schema:
+    $ref: '#/definitions/Institution'
+responses:
+  200:
+    description: Institution updated successfully
+    schema:
+      $ref: '#/definitions/Message'
+  400:
+    description: Missing field(s)
+    schema:
+      $ref: '#/definitions/Error'

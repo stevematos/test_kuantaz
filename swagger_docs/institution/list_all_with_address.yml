@@ -1,0 +1,12 @@
+Get all institutions with address
+Get all institutions with address ( address-with-google-maps, abrev-name)
+---
+tags:
+- Institution
+responses:
+  200:
+    description: List of all institutions with address ( address-with-google-maps, abrev-name)
+    schema:
+      type: array
+      items:
+        $ref: "#/definitions/Institution-with-address"

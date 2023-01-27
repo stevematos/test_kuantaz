@@ -1,0 +1,12 @@
+Get all institutions
+Get all institutions
+---
+tags:
+- Institution
+responses:
+  200:
+    description: List of all institutions
+    schema:
+      type: array
+      items:
+        $ref: "#/definitions/Institution"

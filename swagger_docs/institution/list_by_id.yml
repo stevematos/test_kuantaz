@@ -1,0 +1,14 @@
+Get institution
+Get institution by id
+---
+tags:
+- Institution
+responses:
+  200:
+    description: Institution obtained by search by id
+    schema:
+      $ref: "#/definitions/Institution"
+      projects:
+        type: array
+        items:
+          $ref: "#/definitions/Project"

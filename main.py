@@ -1,12 +1,14 @@
 from flask import Flask
 from flasgger import Swagger
 
+from config.constants import PATH_SWAGGER_DOCS
 from config.database import init_db, dummy_data
 from config.environment import DEBUG_MODE
 from routers import institution_bp, user_bp, project_bp
 
 app = Flask(__name__)
-swagger = Swagger(app)
+
+swagger = Swagger(app, template_file=f"{PATH_SWAGGER_DOCS}/template.yml")
 
 with app.app_context():
     init_db()
