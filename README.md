@@ -13,7 +13,7 @@ API Rest written with Python using Flask and SQLAlchemy.
 ---
 - Docker installed
 
-- Remember to copy the env.test to .env ( in folder app ) to add environment variables to the application.
+- Remember to copy the env.test to .env ( in folder app ) to add environment variables to the application. ( for development )
 
 ## Installation and execution
 ---
