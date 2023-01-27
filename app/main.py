@@ -1,10 +1,9 @@
-from flask import Flask
-from flasgger import Swagger
-
 from config.constants import PATH_SWAGGER_DOCS
-from config.database import init_db, dummy_data
+from config.database import dummy_data, init_db
 from config.environment import DEBUG_MODE
-from routers import institution_bp, user_bp, project_bp
+from flasgger import Swagger
+from flask import Flask
+from routers import institution_bp, project_bp, user_bp
 
 app = Flask(__name__)
 
@@ -18,10 +17,10 @@ app.register_blueprint(user_bp)
 app.register_blueprint(project_bp)
 
 
-@app.route('/dummy')
+@app.route("/dummy")
 def test():
     dummy_data()
-    return {'message': 'Dummy data created successfully'}
+    return {"message": "Dummy data created successfully"}
 
 
-app.run(host='0.0.0.0', debug=DEBUG_MODE)
+app.run(host="0.0.0.0", debug=DEBUG_MODE)

@@ -1,6 +1,5 @@
 from config.database import Base
-
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Date, Integer, String
 from sqlalchemy.orm import relationship
 
 
@@ -15,4 +14,4 @@ class User(Base):
     position = Column(String(25), nullable=False)
     date_of_birth = Column(Date, nullable=False)
 
-    projects = relationship('Project', back_populates="responsible_user")
+    projects = relationship("Project", back_populates="responsible_user")

@@ -1,3 +1,3 @@
-from .institution import institution_bp
-from .project import project_bp
-from .user import user_bp
+from .institution import institution_bp  # noqa: F401
+from .project import project_bp  # noqa: F401
+from .user import user_bp  # noqa: F401

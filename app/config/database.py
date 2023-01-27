@@ -8,8 +8,8 @@ from config.environment import (
     DEBUG_MODE,
 )
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import NullPool
 
 if DATABASE_DIALECT == "sqlite":
@@ -39,43 +39,42 @@ def db_session(f):
 
 
 def init_db():
-    from models import Institution, Project, User
+    from models import Institution, Project, User  # noqa: F401
+
     Base.metadata.create_all(bind=Engine)
 
 
 @db_session
 def dummy_data(db):
-    from models import Institution, Project, User
+    from models import Institution, Project, User  # noqa: F401
 
     institution_1 = Institution(
-        name='Institution 1',
-        description='Description 1',
-        address='Address 1'
+        name="Institution 1", description="Description 1", address="Address 1"
     )
 
     user_1 = User(
-        name='User 1',
-        surname='Surname 1',
+        name="User 1",
+        surname="Surname 1",
         age=28,
-        rut='30.686.957-1',
-        position='Position 1',
-        date_of_birth='1994-02-24',
+        rut="30.686.957-1",
+        position="Position 1",
+        date_of_birth="1994-02-24",
     )
 
     project_1 = Project(
-        name='Project 1',
-        start_date='2023-01-13',
-        end_date='2023-01-21',
+        name="Project 1",
+        start_date="2023-01-13",
+        end_date="2023-01-21",
         user_id=1,
-        institution_id=1
+        institution_id=1,
     )
 
     project_2 = Project(
-        name='Project 2',
-        start_date='2023-01-03',
-        end_date='2023-02-02',
+        name="Project 2",
+        start_date="2023-01-03",
+        end_date="2023-02-02",
         user_id=1,
-        institution_id=1
+        institution_id=1,
     )
 
     db.add(institution_1)

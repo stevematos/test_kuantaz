@@ -6,7 +6,7 @@ def test_adding_extra_data():
     data = {
         "address": "address mz test",
         "description": "test description",
-        "name": "test name"
+        "name": "test name",
     }
 
     result = adding_extra_data(data)
@@ -16,7 +16,7 @@ def test_adding_extra_data():
         "address": "address mz test",
         "address_google_maps": "https://www.google.com/maps/search/address%mz%test",
         "description": "test description",
-        "name": "test name"
+        "name": "test name",
     }
 
     assert result == expected

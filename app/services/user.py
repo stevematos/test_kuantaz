@@ -1,8 +1,7 @@
 from config.exceptions import UserNotFound
-from queries.user import get_user_by_rut, get_all_users
-from sqlalchemy.exc import NoResultFound
-
+from queries.user import get_all_users, get_user_by_rut
 from schemas.user import UserGetSchema
+from sqlalchemy.exc import NoResultFound
 
 
 def read_all_users() -> list[dict]:

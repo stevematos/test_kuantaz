@@ -1,12 +1,18 @@
-from config.exceptions import InstitutionNotFound, InstitutionErrorValidation
-from queries.institution import add_institution, get_institution_by_id, update_institution, delete_product, \
-    get_all_institutions
-from schemas.institution import InstitutionValidationSchema, InstitutionUpdateSchema, \
-    InstitutionGetSchema
-
+from config.exceptions import InstitutionErrorValidation, InstitutionNotFound
 from marshmallow import ValidationError
+from queries.institution import (
+    add_institution,
+    delete_product,
+    get_all_institutions,
+    get_institution_by_id,
+    update_institution,
+)
+from schemas.institution import (
+    InstitutionGetSchema,
+    InstitutionUpdateSchema,
+    InstitutionValidationSchema,
+)
 from sqlalchemy.exc import NoResultFound
-
 from utils.institution import adding_extra_data
 
 
@@ -19,7 +25,7 @@ def create_institution(data: dict) -> dict:
 
     add_institution(institution)
 
-    return {'message': 'Institution created successfully'}
+    return {"message": "Institution created successfully"}
 
 
 def read_all_institutions() -> list[dict]:
@@ -51,7 +57,7 @@ def updated_institution(_id: int, data: dict) -> dict:
 
     update_institution(_id, institution)
 
-    return {'message': 'Institution updated successfully'}
+    return {"message": "Institution updated successfully"}
 
 
 def deleted_institution(_id: int) -> dict:
@@ -62,7 +68,7 @@ def deleted_institution(_id: int) -> dict:
 
     delete_product(_id)
 
-    return {'message': 'Institution deleted successfully'}
+    return {"message": "Institution deleted successfully"}
 
 
 def read_institutions_with_address_google_maps() -> list[dict]:
@@ -71,6 +77,8 @@ def read_institutions_with_address_google_maps() -> list[dict]:
     institutions = get_all_institutions()
     data_institutions = schema.dump(institutions)
 
-    data_institutions = [adding_extra_data(data_institution) for data_institution in data_institutions]
+    data_institutions = [
+        adding_extra_data(data_institution) for data_institution in data_institutions
+    ]
 
     return data_institutions

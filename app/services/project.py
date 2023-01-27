@@ -1,5 +1,5 @@
 from queries.project import get_all_projects
-from schemas.project import ProjectGetSchema, ProjectEndDateSchema
+from schemas.project import ProjectEndDateSchema, ProjectGetSchema
 from utils.project import process_data_for_days_to_end
 
 
@@ -13,6 +13,8 @@ def read_projects_with_days_to_end() -> list[dict]:
 
     projects = get_all_projects()
     data_projects = schema.dump(projects)
-    data_projects = [process_data_for_days_to_end(data_project) for data_project in data_projects]
+    data_projects = [
+        process_data_for_days_to_end(data_project) for data_project in data_projects
+    ]
 
     return data_projects

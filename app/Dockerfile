@@ -17,7 +17,7 @@ RUN apt-get update \
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY ./requirements.txt /home/app/requirements.txt
+COPY ./requirements-docker.txt /home/app/requirements.txt
 RUN pip install -r requirements.txt
 
 COPY . /home/app/

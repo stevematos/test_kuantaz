@@ -21,4 +21,3 @@ class ProjectGetResponsibleUserSchema(ProjectGetSchema):
 
 class ProjectEndDateSchema(ProjectBaseSchema):
     end_date = fields.Date()
-

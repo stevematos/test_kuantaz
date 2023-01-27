@@ -1,6 +1,6 @@
 from unittest.mock import patch
-import pytest
 
+import pytest
 from config.exceptions import InstitutionNotFound
 from services.institution import read_institution
 from sqlalchemy.exc import NoResultFound
@@ -24,14 +24,14 @@ def test_read_institution(mock_get_institution_by_id, _id, is_not_found):
             {
                 "end_date": "2023-01-21",
                 "name": "Project 2",
-                "start_date": "2023-01-03"
+                "start_date": "2023-01-03",
             },
             {
                 "end_date": "2023-01-28",
                 "name": "Project 1",
-                "start_date": "2023-01-13"
-            }
-        ]
+                "start_date": "2023-01-13",
+            },
+        ],
     }
 
     def get_institution_by_id_side_effect(_id, is_dump=True, **kwargs):
