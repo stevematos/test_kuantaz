@@ -92,7 +92,7 @@ test_kuantaz
 
 ```
 
-## Documentation
+## Documentation 📕
 ---
 
 The documentation is in postman and swagger.
@@ -105,7 +105,7 @@ postman : [documentation on Postman](documentation/test_kuantaz.postman_collecti
 #### Note 🔍
 To use test data, make a Get request for endpoint "/dummy"
 
-## Development
+## Development 💻
 
 Requirements:
 - virtualenv
