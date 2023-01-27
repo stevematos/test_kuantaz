@@ -13,6 +13,6 @@ def read_projects_with_days_for_end() -> list[dict]:
 
     projects = get_all_projects()
     data_projects = schema.dump(projects)
-    data_projects = process_data_for_days_for_end(data_projects)
+    data_projects = [process_data_for_days_for_end(data_project) for data_project in data_projects]
 
     return data_projects

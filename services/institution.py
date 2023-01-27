@@ -71,6 +71,6 @@ def read_institutions_with_address_google_maps() -> list[dict]:
     institutions = get_all_institutions()
     data_institutions = schema.dump(institutions)
 
-    data_institutions = adding_extra_data(data_institutions)
+    data_institutions = [adding_extra_data(data_institution) for data_institution in data_institutions]
 
     return data_institutions
