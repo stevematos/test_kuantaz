@@ -3,7 +3,7 @@ from datetime import datetime
 
 def _count_days_for_end(end_date_str: str):
     end_date = datetime.strptime(end_date_str, '%Y-%m-%d').date()
-    date_now = datetime.now().date()
+    date_now = datetime.today().date()
 
     difference_days = (end_date-date_now).days
 

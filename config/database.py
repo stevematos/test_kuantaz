@@ -56,7 +56,7 @@ def dummy_data(db):
     user_1 = User(
         name='User 1',
         surname='Surname 1',
-        age=22,
+        age=28,
         rut='30.686.957-1',
         position='Position 1',
         date_of_birth='1994-02-24',
