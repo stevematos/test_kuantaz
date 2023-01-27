@@ -20,4 +20,4 @@ class UserGetSchema(UserBaseSchema):
 
 
 class UserFullGetSchema(UserBaseSchema):
-    projects = fields.Nested("ProjectGetResponsibleUserSchema", many=True)
+    projects = fields.Nested("ProjectGetSchema", many=True)

@@ -9,4 +9,4 @@ responses:
     schema:
       type: array
       items:
-        $ref: "#/definitions/Institution-with-address"
+        $ref: "#/definitions/InstitutionWithAddress"

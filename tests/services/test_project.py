@@ -2,11 +2,11 @@ from unittest.mock import patch
 
 from models import Project
 from schemas.project import ProjectEndDateSchema
-from services.project import read_projects_with_days_for_end
+from services.project import read_projects_with_days_to_end
 from datetime import date
 
 
-@patch("services.project.process_data_for_days_for_end")
+@patch("services.project.process_data_for_days_to_end")
 @patch("services.project.get_all_projects")
 def test_read_projects_with_days_for_end(mock_get_all_projects, mock_process_data_for_days_for_end):
 
@@ -43,7 +43,7 @@ def test_read_projects_with_days_for_end(mock_get_all_projects, mock_process_dat
 
     mock_process_data_for_days_for_end.side_effect = process_data_for_days_for_end_side_effect
 
-    result = read_projects_with_days_for_end()
+    result = read_projects_with_days_to_end()
 
     expected = [
         {'end_date': '2023-01-28', 'name': 'Project 1', 'count_days_for_end': 0},

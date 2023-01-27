@@ -73,7 +73,7 @@ def dummy_data(db):
     project_2 = Project(
         name='Project 2',
         start_date='2023-01-03',
-        end_date='2023-01-21',
+        end_date='2023-02-02',
         user_id=1,
         institution_id=1
     )

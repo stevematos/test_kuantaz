@@ -1,0 +1,23 @@
+Add a new institution
+Add a new institution
+---
+tags:
+- Institution
+parameters:
+- name: id
+  type: integer
+  in: path
+  required: True
+- name: Institution
+  in: body
+  schema:
+    $ref: '#/definitions/InstitutionForUpdate'
+responses:
+  200:
+    description: Institution updated successfully
+    schema:
+      $ref: '#/definitions/Message'
+  400:
+    description: Institution not found by id
+    schema:
+      $ref: "#/definitions/Error"

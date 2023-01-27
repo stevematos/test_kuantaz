@@ -1,0 +1,12 @@
+Get all Users
+Get all Users
+---
+tags:
+- Project
+responses:
+  200:
+    description: List of all Projects
+    schema:
+      type: array
+      items:
+        $ref: "#/definitions/Project"

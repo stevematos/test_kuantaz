@@ -1,0 +1,19 @@
+Delete institution
+Delete institution by id
+---
+tags:
+- Institution
+parameters:
+- name: id
+  type: integer
+  in: path
+  required: True
+responses:
+  200:
+    description: Institution deleted successfully
+    schema:
+      $ref: '#/definitions/Message'
+  400:
+    description: Institution not found by id
+    schema:
+      $ref: "#/definitions/Error"

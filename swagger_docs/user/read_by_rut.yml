@@ -1,0 +1,19 @@
+Get User
+Get User by id
+---
+tags:
+- User
+parameters:
+- name: rut
+  type: string
+  in: path
+  required: True
+responses:
+  200:
+    description: User obtained by search by rut
+    schema:
+      $ref: "#/definitions/UserWithProject"
+  400:
+    description: User not found by rut
+    schema:
+      $ref: "#/definitions/Error"

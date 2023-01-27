@@ -21,21 +21,35 @@ definitions:
       address:
         type: string
         maxLength: 255
-  Project:
+  InstitutionForUpdate:
     type: object
-    required:
-      - name
-      - start_date
-      - end_date
     properties:
       name:
         type: string
         maxLength: 255
       description:
-        type: date
+        type: string
+        maxLength: 255
       address:
-        type: date
-  Institution-with-address:
+        type: string
+        maxLength: 255
+  InstitutionWithProject:
+    type: object
+    properties:
+      name:
+        type: string
+        maxLength: 255
+      description:
+        type: string
+        maxLength: 255
+      address:
+        type: string
+        maxLength: 255
+      projects:
+        type: array
+        items:
+          $ref: "#/definitions/ProjectWithResponsibleUser"
+  InstitutionWithAddress:
     type: object
     required:
       - name
@@ -57,6 +71,87 @@ definitions:
         type: string
       abbrev_name:
         type: string
+  Project:
+    type: object
+    required:
+      - name
+      - start_date
+      - end_date
+    properties:
+      name:
+        type: string
+        maxLength: 255
+      start_date:
+        type: string
+        format: date
+      end_date:
+        type: string
+        format: date
+  ProjectWithResponsibleUser:
+    type: object
+    properties:
+      name:
+        type: string
+        maxLength: 255
+      start_date:
+        type: string
+        format: date
+      end_date:
+        type: string
+        format: date
+      user:
+        $ref: "#/definitions/User"
+  ProjectWithDaysForEnd:
+    type: object
+    required:
+      - name
+      - start_date
+      - end_date
+    properties:
+      name:
+        type: string
+        maxLength: 255
+      count_days_for_end:
+        type: integer
+  User:
+    type: object
+    properties:
+      name:
+        type: string
+        maxLength: 255
+      surname:
+        type: string
+        maxLength: 255
+      position:
+        type: string
+        maxLength: 255
+      age:
+        type: integer
+      date_of_birth:
+        type: string
+        format: date
+  UserWithProject:
+    type: object
+    properties:
+      name:
+        type: string
+        maxLength: 255
+      surname:
+        type: string
+        maxLength: 255
+      position:
+        type: string
+        maxLength: 255
+      age:
+        type: integer
+      date_of_birth:
+        type: string
+        format: date
+      projects:
+        type: array
+        items:
+          $ref: "#/definitions/Project"
+
   Message:
     type: object
     properties:

@@ -10,6 +10,6 @@ def _count_days_for_end(end_date_str: str):
     return difference_days if difference_days > 0 else 0
 
 
-def process_data_for_days_for_end(data: dict) -> dict:
+def process_data_for_days_to_end(data: dict) -> dict:
     data['count_days_for_end'] = _count_days_for_end(data.pop('end_date'))
     return data

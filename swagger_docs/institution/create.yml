@@ -10,7 +10,7 @@ parameters:
     $ref: '#/definitions/Institution'
 responses:
   200:
-    description: Institution updated successfully
+    description: Institution created successfully
     schema:
       $ref: '#/definitions/Message'
   400:

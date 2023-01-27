@@ -22,7 +22,7 @@ def create():
 
 
 @institution_bp.route('/', methods=['GET'])
-@swag_from(f'{PATH_SWAGGER_DOCS}/institution/list_all.yml')
+@swag_from(f'{PATH_SWAGGER_DOCS}/institution/read_all.yml')
 def read_all():
     try:
         return read_all_institutions(), HTTP_200_OK
@@ -31,7 +31,7 @@ def read_all():
 
 
 @institution_bp.route('/<id>', methods=['GET'])
-@swag_from(f'{PATH_SWAGGER_DOCS}/institution/list_by_id.yml')
+@swag_from(f'{PATH_SWAGGER_DOCS}/institution/read_by_id.yml')
 def read_by_id(id: int):
     try:
         return read_institution(id), HTTP_200_OK
@@ -40,6 +40,7 @@ def read_by_id(id: int):
 
 
 @institution_bp.route('/<id>', methods=['PUT'])
+@swag_from(f'{PATH_SWAGGER_DOCS}/institution/update.yml')
 def update(id: int):
     data = request.json
     try:
@@ -49,6 +50,7 @@ def update(id: int):
 
 
 @institution_bp.route('/<id>', methods=['DELETE'])
+@swag_from(f'{PATH_SWAGGER_DOCS}/institution/delete.yml')
 def delete(id: int):
     try:
         return deleted_institution(id), HTTP_200_OK
@@ -57,8 +59,8 @@ def delete(id: int):
 
 
 @institution_bp.route('/address-google-maps', methods=['GET'])
-@swag_from(f'{PATH_SWAGGER_DOCS}/institution/list_all_with_address.yml')
-def read_address_google_maps():
+@swag_from(f'{PATH_SWAGGER_DOCS}/institution/read_all_address_google_maps.yml')
+def read_all_address_google_maps():
     try:
         return read_institutions_with_address_google_maps(), HTTP_200_OK
     except InstitutionErrorValidation as e:

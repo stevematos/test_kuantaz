@@ -10,7 +10,7 @@ def read_all_users() -> list[dict]:
     return schema.dump(get_all_users())
 
 
-def read_user(rut: str) -> list[dict]:
+def read_user_by_rut(rut: str) -> list[dict]:
     try:
         user = get_user_by_rut(rut, is_dump=True)
     except NoResultFound:
