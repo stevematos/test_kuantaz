@@ -1,7 +1,7 @@
 from config.exceptions import InstitutionNotFound, InstitutionErrorValidation
 from queries.institution import add_institution, get_institution_by_id, update_institution, delete_product, \
     get_all_institutions
-from schemas.institution import InstitutionValidationSchema, InstitutionUpdateSchema, InstitutionFullGetSchema, \
+from schemas.institution import InstitutionValidationSchema, InstitutionUpdateSchema, \
     InstitutionGetSchema
 
 from marshmallow import ValidationError

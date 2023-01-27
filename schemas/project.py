@@ -15,6 +15,10 @@ class ProjectGetSchema(ProjectBaseSchema):
     end_date = fields.Date()
 
 
+class ProjectGetResponsibleUserSchema(ProjectGetSchema):
+    responsible_user = fields.Nested("UserGetSchema", required=True)
+
+
 class ProjectEndDateSchema(ProjectBaseSchema):
     end_date = fields.Date()
 

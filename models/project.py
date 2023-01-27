@@ -1,6 +1,7 @@
 from config.database import Base
 
 from sqlalchemy import Column, Integer, String, Date, ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class Project(Base):
@@ -12,3 +13,5 @@ class Project(Base):
     end_date = Column(Date, nullable=False)
     user_id = Column(Integer, ForeignKey("user.id"))
     institution_id = Column(Integer, ForeignKey("institution.id"))
+    responsible_user = relationship("User", back_populates="projects")
+    institution = relationship("Institution", back_populates="projects")

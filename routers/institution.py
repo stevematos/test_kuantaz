@@ -31,6 +31,7 @@ def read_all():
 
 
 @institution_bp.route('/<id>', methods=['GET'])
+@swag_from(f'{PATH_SWAGGER_DOCS}/institution/list_by_id.yml')
 def read_by_id(id: int):
     try:
         return read_institution(id), HTTP_200_OK
@@ -39,7 +40,6 @@ def read_by_id(id: int):
 
 
 @institution_bp.route('/<id>', methods=['PUT'])
-@swag_from(f'{PATH_SWAGGER_DOCS}/institution/list_by_id.yml')
 def update(id: int):
     data = request.json
     try:
