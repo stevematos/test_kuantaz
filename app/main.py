@@ -24,4 +24,4 @@ def test():
     return {'message': 'Dummy data created successfully'}
 
 
-app.run(debug=DEBUG_MODE)
+app.run(host='0.0.0.0', debug=DEBUG_MODE)

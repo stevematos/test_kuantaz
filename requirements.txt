@@ -1,8 +1,0 @@
-flask
-flasgger
-sqlalchemy
-python-dotenv
-psycopg2
-marshmallow
-pytest
-freezegun
