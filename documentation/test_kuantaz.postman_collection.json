@@ -1,0 +1,865 @@
+{
+	"info": {
+		"_postman_id": "c7dc6a91-57a7-4fe3-9232-0326fec8b2e3",
+		"name": "test_kuantaz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11433262"
+	},
+	"item": [
+		{
+			"name": "institution",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test name\",\n    \"description\": \"test description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/institution/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"institution",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test name\",\n    \"description\": \"test description\",\n    \"address\": \"address mz test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Institution created successfully\"\n}"
+						},
+						{
+							"name": "example 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test name\",\n    \"description\": \"test description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										""
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.16"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Jan 2023 12:01:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"address: Missing data for required field.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "list all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/institution/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"institution",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"address\": \"Address 1\",\n        \"description\": \"Description 1\",\n        \"name\": \"Institution 1\"\n    },\n    {\n        \"address\": \"address mz test\",\n        \"description\": \"test description\",\n        \"name\": \"test name\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "list all with address(google maps)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/institution/address-google-maps",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"institution",
+								"address-google-maps"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/address-google-maps",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										"address-google-maps"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"abbrev_name\": \"Ins\",\n        \"address\": \"Address 1\",\n        \"address_google_maps\": \"https://www.google.com/maps/search/Address%1\",\n        \"description\": \"Description 1\",\n        \"name\": \"Institution 1\"\n    },\n    {\n        \"abbrev_name\": \"tes\",\n        \"address\": \"address mz test\",\n        \"address_google_maps\": \"https://www.google.com/maps/search/address%mz%test\",\n        \"description\": \"test description\",\n        \"name\": \"test name\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "list by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/institution/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"institution",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/institution/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"address\": \"address mz test\",\n    \"description\": \"test description 2\",\n    \"name\": \"test name\"\n}"
+						},
+						{
+							"name": "example 2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/institution/9",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										"9"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.16"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Jan 2023 12:01:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Institution not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test name updated\",\n    \"description\": \"test description updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/institution/8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"institution",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test name updated\",\n    \"description\": \"test description updated\",\n    \"address\": \"address mz test updated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Institution updated successfully\"\n}"
+						},
+						{
+							"name": "example 2",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test name updated\",\n    \"description\": \"test description updated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/8",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										"8"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.16"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Jan 2023 12:00:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Institution not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/institution/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"institution",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Institution deleted successfully\"\n}"
+						},
+						{
+							"name": "example 2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/institution/5",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"institution",
+										"5"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.10.9"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Jan 2023 08:27:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Institution not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "list by rut",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/30.686.957-1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"30.686.957-1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user/30.686.957-1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"30.686.957-1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"age\": 22,\n    \"date_of_birth\": \"1994-02-24\",\n    \"name\": \"User 1\",\n    \"position\": \"Position 1\",\n    \"projects\": [\n        {\n            \"end_date\": \"2023-01-21\",\n            \"name\": \"Project 1\",\n            \"start_date\": \"2023-01-13\"\n        },\n        {\n            \"end_date\": \"2023-01-21\",\n            \"name\": \"Project 2\",\n            \"start_date\": \"2023-01-03\"\n        }\n    ],\n    \"surname\": \"Surname 1\"\n}"
+						},
+						{
+							"name": "example 2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user/30.686.95",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"30.686.95"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.16"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Jan 2023 12:02:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "list all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"age\": 22,\n        \"date_of_birth\": \"1994-02-24\",\n        \"name\": \"User 1\",\n        \"position\": \"Position 1\",\n        \"surname\": \"Surname 1\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "list all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/project",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/project",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"project"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"end_date\": \"2023-01-21\",\n        \"name\": \"Project 1\",\n        \"start_date\": \"2023-01-13\"\n    },\n    {\n        \"end_date\": \"2023-01-21\",\n        \"name\": \"Project 2\",\n        \"start_date\": \"2023-01-03\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "list all with count days to end",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/project/count-days-to-end",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"count-days-to-end"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/project/count-days-for-end",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"project",
+										"count-days-for-end"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"count_days_for_end\": 0,\n        \"name\": \"Project 2\"\n    },\n    {\n        \"count_days_for_end\": 2,\n        \"name\": \"Project 1\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "data dummy",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
